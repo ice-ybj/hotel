@@ -116,7 +116,7 @@
                 title = #{title},
             </if>
             <if test="price!=null">
-                 price = #{price}
+                 price = #{price},
             </if>
         </trim>
         where

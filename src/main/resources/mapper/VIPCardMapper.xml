@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.VIPCardDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.VIPCard">
+        <result column="VIP" property="VIP"/>
+        <result column="ID" property="ID" />
+        <result column="LV" property="LV" />
+        <result column="name" property="name"/>
+        <result column="points" property="points"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        VIP,ID,LV,name,points
+    </sql>
+
+    <insert id="addVIP">
+        insert into
+        VIPCard(<include refid="Base_Column_List"/>)
+        values(#{VIP},#{ID},#{LV},#{name},#{points})
+    </insert>
+
+    <delete id="deleteVIP">
+        delete from
+        VIPCard
+        where VIP = #{vip}
+    </delete>
+
+    <select id="findVIPByVIP" resultType="org.spring.springboot.domain.VIPCard">
+        select
+        <include refid="Base_Column_List"/>
+        from VIPCard
+        where VIP = #{vip}
+    </select>
+
+    <select id="findAllVIP" resultType="org.spring.springboot.domain.VIPCard">
+        select
+        *
+        from VIPCard
+    </select>
+
+    <update id="modifyVIP">
+        update
+        VIPCard
+        <trim prefix="set" suffixOverrides=",">
+            <if test="VIP!=null">
+                VIP = #{VIP},
+            </if>
+            <if test="ID!=null">
+                ID = #{ID},
+            </if>
+            <if test="LV!=null">
+                LV = #{LV},
+            </if>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="points!=null">
+                points = #{points},
+            </if>
+        </trim>
+        where
+        VIP = #{VIP}
+    </update>
+
+
+</mapper>
