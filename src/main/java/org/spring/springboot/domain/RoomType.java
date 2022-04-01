@@ -2,7 +2,10 @@ package org.spring.springboot.domain;
 
 public class RoomType {
     private Long TIN;
+    private String facility;
+    private Long price;
     private String title;
+
 
     public Long getTIN() {
         return TIN;
@@ -28,6 +31,12 @@ public class RoomType {
         this.price = price;
     }
 
-    private Long price;
 
+    public String getFacility() {
+        return facility;
+    }
+
+    public void setFacility(String facility) {
+        this.facility = facility;
+    }
 }

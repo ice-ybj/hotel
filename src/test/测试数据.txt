@@ -1,8 +1,0 @@
-{
-    "building": "泰山区6栋",
-    "floor": "5",
-    "plate": "518",
-    "tin": 1,
-    "rin": 1,
-    "rsin": 0
-}

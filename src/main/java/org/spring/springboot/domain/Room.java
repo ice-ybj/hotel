@@ -2,9 +2,6 @@ package org.spring.springboot.domain;
 
 public class Room {
     private Long RIN;
-    private String building;
-    private String floor;
-    private String plate;
     private Long TIN;
     private Long RSIN;
 
@@ -14,30 +11,6 @@ public class Room {
 
     public void setRIN(Long RIN) {
         this.RIN = RIN;
-    }
-
-    public String getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(String building) {
-        this.building = building;
-    }
-
-    public String getFloor() {
-        return floor;
-    }
-
-    public void setFloor(String floor) {
-        this.floor = floor;
-    }
-
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
     }
 
     public Long getRSIN() {

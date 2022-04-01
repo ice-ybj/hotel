@@ -27,20 +27,18 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="293358fc-9d25-45d6-8c5a-780a75203529">
-      <console name="hotel" type="STANDARD" schema="hotel" session="Main"><![CDATA[s]]></console>
+    <connection id="dae5f2f5-249f-447d-996b-702f84db9fc4">
+      <console name="hotel" type="STANDARD" schema="hotel" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="293358fc-9d25-45d6-8c5a-780a75203529" />
+    <connection id="dae5f2f5-249f-447d-996b-702f84db9fc4" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="293358fc-9d25-45d6-8c5a-780a75203529" dataset="hotel.Good" active-filter-id="" />
-    <filter-actions connection-id="293358fc-9d25-45d6-8c5a-780a75203529" dataset="hotel.OrderSales" active-filter-id="" />
-    <filter-actions connection-id="293358fc-9d25-45d6-8c5a-780a75203529" dataset="hotel.Room" active-filter-id="" />
+    <filter-actions connection-id="dae5f2f5-249f-447d-996b-702f84db9fc4" dataset="hotel.RoomType" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -71,7 +69,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="293358fc-9d25-45d6-8c5a-780a75203529" active="true" signed="false">
+      <connection id="dae5f2f5-249f-447d-996b-702f84db9fc4" active="true" signed="false">
         <database>
           <name value="hotel" />
           <description value="" />

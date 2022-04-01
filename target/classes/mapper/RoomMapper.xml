@@ -3,25 +3,27 @@
 <mapper namespace="org.spring.springboot.dao.RoomDao">
     <resultMap id="BaseResultMap" type="org.spring.springboot.domain.Room">
         <result column="RIN" property="RIN"/>
-        <result column="building" property="building" />
-        <result column="floor" property="floor" />
-        <result column="plate" property="plate" />
         <result column="TIN" property="TIN" />
         <result column="RSIN" property="RSIN" />
     </resultMap>
 
     <resultMap id="TypeResultMap" type="org.spring.springboot.domain.RoomType">
         <result column="TIN" property="TIN"/>
+        <result column="facility" property="facility"/>
         <result column="title" property="title"/>
         <result column="price" property="price"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        RIN,building,floor,plate,TIN,RSIN
+        RIN,TIN,RSIN
     </sql>
 
     <sql id="Type_Column_List">
-        Room.TIN,title,price
+        Room.TIN,facility,title,price
+    </sql>
+
+    <sql id="Type1_Column_List">
+        TIN,facility,title,price
     </sql>
 
     <select id="findAllRoom" resultMap="BaseResultMap">
@@ -30,14 +32,12 @@
         from Room
     </select>
 
-
-    <select id="findRoomByRIN" resultMap="BaseResultMap">
+    <select id="findRoomPriceByRIN" resultType="org.spring.springboot.domain.RoomType">
         select
-        *
-        from Room
+        Room.TIN,facility,price,title
+        from Room left join RoomType on Room.TIN = RoomType.TIN
         where RIN = #{rin}
     </select>
-
 
     <select id="findRoomType" resultMap="TypeResultMap">
         select
@@ -52,11 +52,24 @@
         values(#{RIN},#{building},#{floor},#{plate},#{TIN},#{RSIN})
     </insert>
 
+    <insert id="addRoomType">
+        insert into
+        RoomType(<include refid="Type1_Column_List"/>)
+        values(#{TIN},#{facility},#{title},#{price})
+    </insert>
+
     <select id="findRoomStatus" resultType="org.spring.springboot.domain.StatusRoom">
         select
         Room.RSIN,room_status_en,room_status_zh
         from Room left join StatusRoom on Room.RSIN = StatusRoom.RSIN
         where Room.RIN = #{rin}
+    </select>
+
+
+    <select id="findAllRoomType" resultType="org.spring.springboot.domain.RoomType">
+        select
+        *
+        from RoomType
     </select>
 
     <delete id="deleteRoom">
@@ -65,21 +78,18 @@
         where RIN = #{rin}
     </delete>
 
+    <delete id="deleteRoomType">
+        delete
+        from RoomType
+        where TIN = #{tin}
+    </delete>
+
     <update id="modifyRoom">
         update
         Room
         <trim prefix="set" suffixOverrides=",">
         <if test="RIN!=null">
             RIN = #{RIN},
-        </if>
-        <if test="building!=null">
-            building = #{building},
-        </if>
-        <if test="floor!=null">
-            floor = #{floor},
-        </if>
-        <if test="plate!=null">
-            plate = #{plate},
         </if>
         <if test="TIN!=null">
             TIN = #{TIN},
@@ -90,5 +100,26 @@
         </trim>
         where
         RIN = #{RIN}
+    </update>
+
+    <update id="modfiyRoomType">
+        update
+        RoomType
+        <trim prefix="set" suffixOverrides=",">
+            <if test="TIN!=null">
+                TIN = #{TIN},
+            </if>
+            <if test="facility!=null">
+                facility = #{facility},
+            </if>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="price!=null">
+                 price = #{price}
+            </if>
+        </trim>
+        where
+        TIN = #{TIN}
     </update>
 </mapper>

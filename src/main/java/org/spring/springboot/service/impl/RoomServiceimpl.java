@@ -23,10 +23,15 @@ public class RoomServiceimpl implements RoomService {
     }
 
     @Override
-    public String findRoomByRIN(Long rin) {
-        Room room = roomDao.findRoomByRIN(rin);
-        String Location = room.getBuilding() + "," + room.getFloor() + "," + room.getPlate();
-        return Location;
+    public List<RoomType> findAllRoomType() {
+        return roomDao.findAllRoomType();
+    }
+
+
+    @Override
+    public Long findRoomPriceByRIN(Long rin) {
+        RoomType room = roomDao.findRoomPriceByRIN(rin);
+        return room.getPrice();
     }
 
     @Override
@@ -59,5 +64,25 @@ public class RoomServiceimpl implements RoomService {
         Long flag = roomDao.modifyRoom(room);
         if(flag==1) return "修改成功！";
         return "modify error";
+    }
+
+    @Override
+    public String modifyRoomType(RoomType roomType){
+        Long flag = roomDao.modfiyRoomType(roomType);
+        if(flag==1) return "修改成功！";
+        return "modify error";
+    }
+
+    @Override
+    public String addRoomType(RoomType roomType) {
+        roomDao.addRoomType(roomType);
+        return "添加成功！";
+    }
+
+    @Override
+    public String deleteRoomType(Long tin) {
+        Long flag = roomDao.deleteRoomType(tin);
+        if(flag==1) return "删除成功！";
+        return "delete error";
     }
 }
