@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.RoomDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.Room">
+        <result column="RIN" property="RIN"/>
+        <result column="building" property="building" />
+        <result column="floor" property="floor" />
+        <result column="plate" property="plate" />
+        <result column="TIN" property="TIN" />
+        <result column="RSIN" property="RSIN" />
+    </resultMap>
+
+    <resultMap id="TypeResultMap" type="org.spring.springboot.domain.RoomType">
+        <result column="TIN" property="TIN"/>
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        RIN,building,floor,plate,TIN,RSIN
+    </sql>
+
+    <sql id="Type_Column_List">
+        Room.TIN,title,price
+    </sql>
+
+    <select id="findAllRoom" resultMap="BaseResultMap">
+        select
+        *
+        from Room
+    </select>
+
+
+    <select id="findRoomByRIN" resultMap="BaseResultMap">
+        select
+        *
+        from Room
+        where RIN = #{rin}
+    </select>
+
+
+    <select id="findRoomType" resultMap="TypeResultMap">
+        select
+        <include refid="Type_Column_List"/>
+        from Room left join RoomType on Room.TIN = RoomType.TIN
+        where Room.RIN = #{rin}
+    </select>
+
+    <insert id="addRoom" useGeneratedKeys="true" keyProperty="RIN">
+        insert into
+        Room(<include refid="Base_Column_List"/>)
+        values(#{RIN},#{building},#{floor},#{plate},#{TIN},#{RSIN})
+    </insert>
+
+    <select id="findRoomStatus" resultType="org.spring.springboot.domain.StatusRoom">
+        select
+        Room.RSIN,room_status_en,room_status_zh
+        from Room left join StatusRoom on Room.RSIN = StatusRoom.RSIN
+        where Room.RIN = #{rin}
+    </select>
+
+    <delete id="deleteRoom">
+        delete
+        from Room
+        where RIN = #{rin}
+    </delete>
+
+    <update id="modifyRoom">
+        update
+        Room
+        <trim prefix="set" suffixOverrides=",">
+        <if test="RIN!=null">
+            RIN = #{RIN},
+        </if>
+        <if test="building!=null">
+            building = #{building},
+        </if>
+        <if test="floor!=null">
+            floor = #{floor},
+        </if>
+        <if test="plate!=null">
+            plate = #{plate},
+        </if>
+        <if test="TIN!=null">
+            TIN = #{TIN},
+        </if>
+        <if test="RSIN!=null">
+             RSIN = #{RSIN},
+        </if>
+        </trim>
+        where
+        RIN = #{RIN}
+    </update>
+</mapper>

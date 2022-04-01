@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.UserDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.User">
+        <result column="account" property="account" />
+        <result column="password" property="password" />
+        <result column="identity" property="identity" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        account, password, identity
+    </sql>
+
+    <select id="queryAll" resultMap="BaseResultMap">
+        select * from Users
+    </select>
+
+    <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="UUID">
+        insert into Users(account, password, identity) values(#{account}, #{password}, #{identity})
+    </insert>
+
+    <select id="queryByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from Users
+        where account = #{username}
+    </select>
+</mapper>
