@@ -3,25 +3,33 @@ package org.spring.springboot.domain;
 import java.util.Date;
 
 public class OrderCheck {
-    private int CSIN;
+    private Long OCIN;
+    private Long CSIN;
     private Date orderTime;
     private Date checkInTime;
     private Date checkOutTime;
-    private String roomBuilding;
-    private String roomFloor;
-    private String roomPlate;
     private String roomTypeTitle;
+    private String roomPlate;
     private Long roomPrice;
+    private Long VIP;
     private Long vipLevel;
     private Long discount;
     private Long finalPrice;
     private String paymentMethod;
 
-    public int getCSIN() {
+    public Long getOCIN() {
+        return OCIN;
+    }
+
+    public void setOCIN(Long OCIN) {
+        this.OCIN = OCIN;
+    }
+
+    public Long getCSIN() {
         return CSIN;
     }
 
-    public void setCSIN(int CSIN) {
+    public void setCSIN(Long CSIN) {
         this.CSIN = CSIN;
     }
 
@@ -49,20 +57,12 @@ public class OrderCheck {
         this.checkOutTime = checkOutTime;
     }
 
-    public String getRoomBuilding() {
-        return roomBuilding;
+    public String getRoomTypeTitle() {
+        return roomTypeTitle;
     }
 
-    public void setRoomBuilding(String roomBuilding) {
-        this.roomBuilding = roomBuilding;
-    }
-
-    public String getRoomFloor() {
-        return roomFloor;
-    }
-
-    public void setRoomFloor(String roomFloor) {
-        this.roomFloor = roomFloor;
+    public void setRoomTypeTitle(String roomTypeTitle) {
+        this.roomTypeTitle = roomTypeTitle;
     }
 
     public String getRoomPlate() {
@@ -73,20 +73,20 @@ public class OrderCheck {
         this.roomPlate = roomPlate;
     }
 
-    public String getRoomTypeTitle() {
-        return roomTypeTitle;
-    }
-
-    public void setRoomTypeTitle(String roomTypeTitle) {
-        this.roomTypeTitle = roomTypeTitle;
-    }
-
     public Long getRoomPrice() {
         return roomPrice;
     }
 
     public void setRoomPrice(Long roomPrice) {
         this.roomPrice = roomPrice;
+    }
+
+    public Long getVIP() {
+        return VIP;
+    }
+
+    public void setVIP(Long VIP) {
+        this.VIP = VIP;
     }
 
     public Long getVipLevel() {

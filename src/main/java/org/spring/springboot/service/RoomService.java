@@ -18,7 +18,7 @@ public interface RoomService {
     public List<RoomType> findAllRoomType();
 
     /**
-     * 查询房间价格
+     * 查询房间号查找房间价格
      */
     public Long findRoomPriceByRIN(Long rin);
 

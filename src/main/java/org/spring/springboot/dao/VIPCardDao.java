@@ -16,7 +16,7 @@ public interface VIPCardDao {
     public Long deleteVIP(Long vip);
 
     /**
-     * 查找VIP用户信息
+     * 根据VIP卡号查找VIP用户信息
      */
     public VIPCard findVIPByVIP(Long vip);
 

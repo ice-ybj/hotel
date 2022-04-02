@@ -19,12 +19,25 @@ public class RoomRestController {
         return roomService.findAllRoom();
     }
 
+    @PostMapping("/api/room")
+    public String addRoom(@RequestBody Room room){
+        return roomService.addRoom(room);
+    }
+
     @GetMapping("/api/room/type")
     public List<RoomType> findAllRoomType(){return roomService.findAllRoomType();}
+
+    @PostMapping("/api/room/type")
+    public String addRoomType(@RequestBody RoomType roomType){return roomService.addRoomType(roomType);}
 
     @GetMapping("/api/room/{rin}")
     public Long findRoomPriceByRIN(@PathVariable("rin") Long rin){
         return roomService.findRoomPriceByRIN(rin);
+    }
+
+    @PostMapping("/api/room/{rin}")
+    public String deleteRoom(@PathVariable("rin") Long rin){
+        return roomService.deleteRoom(rin);
     }
 
     @GetMapping("/api/room/type/{rin}")
@@ -32,33 +45,20 @@ public class RoomRestController {
         return roomService.findRoomType(rin);
     }
 
+    @PostMapping("/api/room/type/{tin}")
+    public String deleteRoomType(@PathVariable("tin") Long tin){return roomService.deleteRoomType(tin);}
+
     @GetMapping("/api/room/status/{rin}")
     public String findRoomStatus(@PathVariable("rin") Long rin){
         return roomService.findRoomStatus(rin);
     }
-
-    @PostMapping("/api/room")
-    public String addRoom(@RequestBody Room room){
-        return roomService.addRoom(room);
-    }
-
-    @PostMapping("/api/room/type")
-    public String addRoomType(@RequestBody RoomType roomType){return roomService.addRoomType(roomType);}
-
-    @PostMapping("/api/room/{rin}")
-    public String deleteRoom(@PathVariable("rin") Long rin){
-        return roomService.deleteRoom(rin);
-    }
-
-    @PostMapping("/api/room/type/{tin}")
-    public String deleteRoomType(@PathVariable("tin") Long tin){return roomService.deleteRoomType(tin);}
 
     @PostMapping("/api/room/modify/{rin}")
     public String modifyRoom(@RequestBody Room room){
         return roomService.modifyRoom(room);
     }
 
-    @PostMapping("/api/room/modifytype/{tin}")
+    @PostMapping("/api/room/type/modify/{tin}")
     public String modifyRoomType(@RequestBody RoomType roomType){return roomService.modifyRoomType(roomType);}
 
 }
