@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.OrderBookDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.OrderBook">
+        <result column="OBIN" property="OBIN"/>
+        <result column="BSIN" property="BSIN" />
+        <result column="orderTime" property="orderTime"/>
+        <result column="checkInTime" property="checkInTime"/>
+        <result column="checkOutTime" property="checkOutTime"/>
+        <result column="roomerName" property="roomerName"/>
+        <result column="roomerID" property="roomerID"/>
+        <result column="roomerPhone" property="roomerPhone"/>
+        <result column="roomTypeTitle" property="roomTypeTitle"/>
+        <result column="roomPrice" property="roomPrice"/>
+        <result column="vipLevel" property="vipLevel"/>
+        <result column="discount" property="discount"/>
+        <result column="finalPrice" property="finalPrice"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        OBIN,BSIN,orderTime,checkInTime,checkOutTime,roomerName,roomerID,roomerPhone,
+        roomTypeTitle,roomPrice,vipLevel,discount,finalPrice
+    </sql>
+
+    <insert id="addOrderBook" useGeneratedKeys="true" keyProperty="OBIN">
+        insert into
+        OrderBook(<include refid="Base_Column_List"/>)
+        values(#{OBIN},#{BSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomerName},#{roomerID},
+        #{roomerPhone},#{roomTypeTitle},#{roomPrice},#{vipLevel},#{discount},#{finalPrice})
+    </insert>
+
+    <delete id="deleteOrderBook">
+        delete from
+        OrderBook
+        where OBIN = #{obin}
+    </delete>
+
+    <select id="findOrderBookByOBIN" resultType="org.spring.springboot.domain.OrderBook">
+        select
+        <include refid="Base_Column_List"/>
+        from OrderBook
+        where OBIN = #{obin}
+    </select>
+
+    <select id="findAllOrderBook" resultType="org.spring.springboot.domain.OrderBook">
+        select
+        *
+        from OrderBook
+    </select>
+
+    <update id="modifyOrderBook">
+        update
+        OrderBook
+        <trim prefix="set" suffixOverrides=",">
+            <if test="OBIN!=null">
+                OBIN = #{OBIN},
+            </if>
+            <if test="BSIN!=null">
+                BSIN = #{BSIN},
+            </if>
+            <if test="orderTime!=null">
+                orderTime = #{orderTime},
+            </if>
+            <if test="checkInTime!=null">
+                checkInTime = #{checkInTime},
+            </if>
+            <if test="checkOutTime!=null">
+                checkOutTime = #{checkOutTime},
+            </if>
+            <if test="roomerName!=null">
+                roomerName = #{roomerName},
+            </if>
+            <if test="roomerID!=null">
+                roomID = #{roomerID},
+            </if>
+            <if test="roomerPhone!=null">
+                roomerPhone = #{roomerPhone},
+            </if>
+            <if test="roomTypeTitle!=null">
+                roomTypeTitle = #{roomTypeTitle},
+            </if>
+            <if test="roomPrice!=null">
+                roomPrice = #{roomPrice},
+            </if>
+            <if test="vipLevel!=null">
+                vipLevel = #{vipLevel},
+            </if>
+            <if test="discount!=null">
+                discount = #{discount},
+            </if>
+            <if test="finalPrice!=null">
+                finalPrice = #{finalPrice},
+            </if>
+        </trim>
+        where
+        OBIN = #{OBIN}
+    </update>
+</mapper>

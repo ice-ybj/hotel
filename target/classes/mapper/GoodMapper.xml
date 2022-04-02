@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.GoodDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.Good">
+        <result column="GIN" property="GIN"/>
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+        <result column="inventory" property="inventory"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        GIN,title,price,inventory
+    </sql>
+
+    <insert id="addGood">
+        insert into
+        Good(<include refid="Base_Column_List"/>)
+        values(#{GIN},#{title},#{price},#{inventory})
+    </insert>
+
+    <update id="modifyGood">
+        update
+        Good
+        <trim prefix="set" suffixOverrides=",">
+            <if test="GIN!=null">
+                GIN = #{GIN},
+            </if>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="price!=null">
+                price = #{price},
+            </if>
+            <if test="inventory!=null">
+                inventory = #{inventory},
+            </if>
+            where
+            GIN = #{GIN}
+        </trim>
+    </update>
+
+    <select id="findAllGood" resultType="org.spring.springboot.domain.Good">
+        select *
+        from Good
+    </select>
+
+    <select id="findGoodByGIN" resultType="org.spring.springboot.domain.Good">
+        select
+        <include refid="Base_Column_List"/>
+        from Good
+        where GIN = #{gin}
+    </select>
+
+</mapper>

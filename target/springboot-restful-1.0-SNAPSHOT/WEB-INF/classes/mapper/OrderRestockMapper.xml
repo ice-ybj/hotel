@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.OrderRestockDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.OrderRestock">
+        <result column="ORIN" property="ORIN"/>
+        <result column="orderTime" property="orderTime"/>
+        <result column="goodTitle" property="goodTitle"/>
+        <result column="goodPrice" property="goodPrice"/>
+        <result column="amount" property="amount"/>
+        <result column="totalPrice" property="totalPrice"/>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        ORIN,orderTime,goodTitle,goodPrice,amount,totalPrice
+    </sql>
+
+    <insert id="addOrderRestock">
+        insert
+        into OrderRestock(<include refid="Base_Column_List"/>)
+        values(#{ORIN},#{orderTime},#{goodTitle},#{goodPrice},#{amount},#{totalPrice})
+    </insert>
+
+    <update id="modifyOrderRestock">
+        update
+        OrderRestock
+        <trim prefix="set" suffixOverrides=",">
+            <if test="ORIN!=null">
+                ORIN = #{ORIN},
+            </if>
+            <if test="orderTime!=null">
+                orderTime = #{orderTime},
+            </if>
+            <if test="goodTitle!=null">
+                goodTitle = #{goodTitle},
+            </if>
+            <if test="goodPrice!=null">
+                goodPrice = #{goodPrice}
+            </if>
+            <if test="amount!=null">
+                amount = #{amount},
+            </if>
+            <if test="totalPrice!=null">
+                totalPrice = #{totalPrice},
+            </if>
+        </trim>
+        where
+        ORIN = #{ORIN}
+    </update>
+
+    <delete id="deleteOrderRestock">
+        delete
+        from OrderRestock
+        where ORIN = #{orin}
+    </delete>
+
+    <select id="findAllOrderRestock" resultType="org.spring.springboot.domain.OrderRestock">
+        select *
+        from OrderRestock
+    </select>
+
+    <select id="findOrderRestockByORIN" resultType="org.spring.springboot.domain.OrderRestock">
+        select
+        <include refid="Base_Column_List"/>
+        from OrderRestock
+        where ORIN = #{orin}
+    </select>
+
+</mapper>

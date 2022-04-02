@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.OrderCheckDao">
+    <resultMap id="BaseResultMap" type="org.spring.springboot.domain.OrderCheck">
+        <result column="OCIN" property="OCIN"/>
+        <result column="CSIN" property="CSIN" />
+        <result column="orderTime" property="orderTime"/>
+        <result column="checkInTime" property="checkInTime"/>
+        <result column="checkOutTime" property="checkOutTime"/>
+        <result column="roomTypeTitle" property="roomTypeTitle"/>
+        <result column="roomPlate" property="roomPlate"/>
+        <result column="roomPrice" property="roomPrice"/>
+        <result column="VIP" property="VIP"/>
+        <result column="vipLevel" property="vipLevel"/>
+        <result column="discount" property="discount"/>
+        <result column="finalPrice" property="finalPrice"/>
+        <result column="paymentMethod" property="paymentMethod"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        OCIN,CSIN,orderTime,checkInTime,checkOutTime,roomTypeTitle,
+        roomPlate,roomPrice,VIP,vipLevel,discount,finalPrice,paymentMethod
+    </sql>
+
+    <insert id="addOrderCheck" useGeneratedKeys="true" keyProperty="OCIN">
+        insert into
+        OrderCheck(<include refid="Base_Column_List"/>)
+        values(#{OCIN},#{CSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomTypeTitle},
+        #{roomPlate},#{roomPrice},#{VIP},#{vipLevel},#{discount},#{finalPrice},#{paymentMethond})
+    </insert>
+    
+    <delete id="deleteOrderCheck">
+        delete from
+        OrderCheck
+        where OCIN = #{ocin}
+    </delete>
+    
+    <select id="findOrderCheckByOCIN" resultType="org.spring.springboot.domain.OrderCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from OrderCheck
+        where OCIN = #{ocin}
+    </select>
+    
+    <select id="findAllOrderCheck" resultType="org.spring.springboot.domain.OrderCheck">
+        select
+        *
+        from OrderCheck
+    </select>
+    
+    <update id="modifyOrderCheck">
+        update
+        OrderCheck
+        <trim prefix="set" suffixOverrides=",">
+            <if test="OCIN!=null">
+                OCIN = #{OCIN},
+            </if>
+            <if test="CSIN!=null">
+                CSIN = #{CSIN},
+            </if>
+            <if test="orderTime!=null">
+                orderTime = #{orderTime},
+            </if>
+            <if test="checkInTime!=null">
+                checkInTime = #{checkInTime},
+            </if>
+            <if test="checkOutTime!=null">
+                checkOutTime = #{checkOutTime},
+            </if>
+            <if test="roomTypeTitle!=null">
+                roomTypeTitle = #{roomTypeTitle},
+            </if>
+            <if test="roomPlate!=null">
+                roomPlate = #{roomPlate},
+            </if>
+            <if test="roomPrice!=null">
+                roomPrice = #{roomPrice},
+            </if>
+            <if test="VIP!=null">
+                VIP = #{VIP},
+            </if>
+            <if test="vipLevel!=null">
+                vipLevel = #{vipLevel},
+            </if>
+            <if test="discount!=null">
+                discount = #{discount},
+            </if>
+            <if test="finalPrice!=null">
+                finalPrice = #{finalPrice},
+            </if>
+            <if test="paymentMethod!=null">
+                paymentMethod = #{paymentMethod},
+            </if>
+        </trim>
+        where
+        OCIN = #{OCIN}
+    </update>
+
+</mapper>
