@@ -49,7 +49,7 @@
     <insert id="addRoom" useGeneratedKeys="true" keyProperty="RIN">
         insert into
         Room(<include refid="Base_Column_List"/>)
-        values(#{RIN},#{building},#{floor},#{plate},#{TIN},#{RSIN})
+        values(#{RIN},#{TIN},#{RSIN})
     </insert>
 
     <insert id="addRoomType">
