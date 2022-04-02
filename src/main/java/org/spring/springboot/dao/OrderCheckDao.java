@@ -2,7 +2,6 @@ package org.spring.springboot.dao;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import org.spring.springboot.domain.OrderCheck;
-import org.spring.springboot.domain.VIPCard;
 
 import java.util.List;
 

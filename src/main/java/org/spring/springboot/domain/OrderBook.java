@@ -15,7 +15,7 @@ public class OrderBook {
     private String roomerID;
     private String roomerName;
     private String roomerPhone;
-    private Long vipLeve;
+    private Long vipLevel;
 
 
     public Long getOBIN() {
@@ -114,11 +114,11 @@ public class OrderBook {
         this.roomerPhone = roomerPhone;
     }
 
-    public Long getVipLeve() {
-        return vipLeve;
+    public Long getVipLevel() {
+        return vipLevel;
     }
 
-    public void setVipLeve(Long vipLeve) {
-        this.vipLeve = vipLeve;
+    public void setVipLevel(Long vipLevel) {
+        this.vipLevel = vipLevel;
     }
 }
