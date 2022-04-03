@@ -3,6 +3,7 @@ package org.spring.springboot.service.impl;
 import org.spring.springboot.dao.OrderBookDao;
 import org.spring.springboot.domain.OrderBook;
 import org.spring.springboot.service.OrderBookService;
+import org.spring.springboot.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public class OrderBookServiceimpl implements OrderBookService {
     @Autowired
     private OrderBookDao orderBookDao;
+
+    @Autowired
+    private RoomService roomService;
 
     @Override
     public String addOrderBook(OrderBook orderBook) {
@@ -41,5 +45,11 @@ public class OrderBookServiceimpl implements OrderBookService {
         Long flag = orderBookDao.modifyOrderBook(orderBook);
         if(flag==1){return "修改成功！";}
         return "modify error!";
+    }
+
+    @Override
+    public int findamountByRoomTypeTitle(String roomtypetitle) {
+        int amount = roomService.findamountByRoomTypeTitle(roomtypetitle) - orderBookDao.findOrderBookByRoomTypeTitle(roomtypetitle).size();
+        return amount;
     }
 }

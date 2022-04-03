@@ -35,6 +35,11 @@ public class RoomRestController {
         return roomService.findRoomPriceByRIN(rin);
     }
 
+    @GetMapping("/api/room/find/{tin}")
+    public List<Room> findRoomByTIN(@PathVariable("tin") Long tin){
+        return roomService.findRoomByTIN(tin);
+    }
+
     @PostMapping("/api/room/{rin}")
     public String deleteRoom(@PathVariable("rin") Long rin){
         return roomService.deleteRoom(rin);

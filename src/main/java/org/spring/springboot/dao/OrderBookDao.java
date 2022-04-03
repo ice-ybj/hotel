@@ -23,6 +23,11 @@ public interface OrderBookDao {
     public OrderBook findOrderBookByOBIN(Long obin);
 
     /**
+     * 根据房间类型查找相关预订单信息
+     */
+    public List<OrderBook> findOrderBookByRoomTypeTitle(String roomtypetitle);
+
+    /**
      * 查找所有预订单信息
      */
     public List<OrderBook> findAllOrderBook();

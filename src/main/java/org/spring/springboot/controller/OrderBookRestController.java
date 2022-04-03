@@ -18,6 +18,9 @@ public class OrderBookRestController {
     @GetMapping("/api/orderbook/{obin}")
     public OrderBook findOrderBookByOBIN(@PathVariable("obin") Long obin){return orderBookService.findOrderBookByOBIN(obin);}
 
+    @GetMapping("/api/orderbook/amount/{roomtypetitle}")
+    public int findamountByRoomTypeTitle(@PathVariable("roomtypetitle") String roomtypetitle){return orderBookService.findamountByRoomTypeTitle(roomtypetitle);}
+
     @PostMapping("/api/orderbook")
     public String addOrderBook(@RequestBody OrderBook orderBook){return orderBookService.addOrderBook(orderBook);}
 

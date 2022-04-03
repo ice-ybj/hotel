@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrderCheck {
     private Long OCIN;
+    private Long OBIN;
     private Long CSIN;
     private Date orderTime;
     private Date checkInTime;
@@ -119,5 +120,13 @@ public class OrderCheck {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public Long getOBIN() {
+        return OBIN;
+    }
+
+    public void setOBIN(Long OBIN) {
+        this.OBIN = OBIN;
     }
 }

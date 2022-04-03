@@ -34,6 +34,17 @@ public class RoomServiceimpl implements RoomService {
         return room.getPrice();
     }
 
+   @Override
+    public List<Room> findRoomByTIN(Long tin){
+        return roomDao.findRoomByTIN(tin);
+    }
+
+    @Override
+    public int findamountByRoomTypeTitle(String roomtypetitle) {
+        List<Room> roomlists = roomDao.findamountByRoomTypeTitle(roomtypetitle);
+        return roomlists.size();
+    }
+
     @Override
     public RoomType findRoomType(Long rin) {
         return roomDao.findRoomType(rin);

@@ -29,4 +29,9 @@ public interface OrderBookService {
      * 修改预订单信息
      */
     public String modifyOrderBook(OrderBook orderBook);
+
+    /**
+     *查询库存
+     */
+    public int findamountByRoomTypeTitle(String roomtypetitle);
 }

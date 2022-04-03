@@ -23,6 +23,16 @@ public interface RoomDao {
     public RoomType findRoomPriceByRIN(Long rin);
 
     /**
+     * 根据房间类型号查询相关房间信息
+     */
+    public List<Room> findRoomByTIN(Long tin);
+
+    /**
+     * 根据类型名查询相关房间可入住数目
+     */
+    public List<Room> findamountByRoomTypeTitle(String roomtypetitle);
+
+    /**
      * 查询房间类型
      */
     public RoomType findRoomType(Long rin);
