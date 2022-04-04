@@ -11,12 +11,11 @@ public class OrderCheck {
     private Date checkOutTime;
     private String roomTypeTitle;
     private String roomPlate;
-    private Long roomPrice;
+    private Double roomPrice;
     private Long VIP;
     private Long vipLevel;
-    private Long discount;
-    private Long finalPrice;
-    private String paymentMethod;
+    private Double discount;
+    private Double finalPrice;
 
     public Long getOCIN() {
         return OCIN;
@@ -74,14 +73,6 @@ public class OrderCheck {
         this.roomPlate = roomPlate;
     }
 
-    public Long getRoomPrice() {
-        return roomPrice;
-    }
-
-    public void setRoomPrice(Long roomPrice) {
-        this.roomPrice = roomPrice;
-    }
-
     public Long getVIP() {
         return VIP;
     }
@@ -98,29 +89,6 @@ public class OrderCheck {
         this.vipLevel = vipLevel;
     }
 
-    public Long getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Long discount) {
-        this.discount = discount;
-    }
-
-    public Long getFinalPrice() {
-        return finalPrice;
-    }
-
-    public void setFinalPrice(Long finalPrice) {
-        this.finalPrice = finalPrice;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
 
     public Long getOBIN() {
         return OBIN;
@@ -128,5 +96,17 @@ public class OrderCheck {
 
     public void setOBIN(Long OBIN) {
         this.OBIN = OBIN;
+    }
+
+    public void setRoomPrice(Double roomPrice) {
+        this.roomPrice = roomPrice;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    public void setFinalPrice(Double finalPrice) {
+        this.finalPrice = finalPrice;
     }
 }

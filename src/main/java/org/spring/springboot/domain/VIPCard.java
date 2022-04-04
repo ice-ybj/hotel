@@ -5,7 +5,7 @@ public class VIPCard {
     private Long ID;
     private Long LV;
     private String name;
-    private Long points;
+    private Double points;
 
     public Long getVIP() {
         return VIP;
@@ -39,11 +39,11 @@ public class VIPCard {
         this.name = name;
     }
 
-    public Long getPoints() {
+    public Double getPoints() {
         return points;
     }
 
-    public void setPoints(Long points) {
+    public void setPoints(Double points) {
         this.points = points;
     }
 }

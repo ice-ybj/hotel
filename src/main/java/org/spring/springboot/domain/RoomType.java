@@ -3,7 +3,7 @@ package org.spring.springboot.domain;
 public class RoomType {
     private Long TIN;
     private String facility;
-    private Long price;
+    private Double price;
     private String title;
 
 
@@ -23,20 +23,19 @@ public class RoomType {
         this.title = title;
     }
 
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
-    }
-
-
     public String getFacility() {
         return facility;
     }
 
     public void setFacility(String facility) {
         this.facility = facility;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

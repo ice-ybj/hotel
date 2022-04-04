@@ -15,19 +15,18 @@
         <result column="vipLevel" property="vipLevel"/>
         <result column="discount" property="discount"/>
         <result column="finalPrice" property="finalPrice"/>
-        <result column="paymentMethod" property="paymentMethod"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         OCIN,OBIN,CSIN,orderTime,checkInTime,checkOutTime,roomTypeTitle,
-        roomPlate,roomPrice,VIP,vipLevel,discount,finalPrice,paymentMethod
+        roomPlate,roomPrice,VIP,vipLevel,discount,finalPrice
     </sql>
 
     <insert id="addOrderCheck" useGeneratedKeys="true" keyProperty="OCIN">
         insert into
         OrderCheck(<include refid="Base_Column_List"/>)
-        values(#{OCIN},#{CSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomTypeTitle},
-        #{roomPlate},#{roomPrice},#{VIP},#{vipLevel},#{discount},#{finalPrice},#{paymentMethond})
+        values(#{OCIN},#{OBIN},#{CSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomTypeTitle},
+        #{roomPlate},#{roomPrice},#{VIP},#{vipLevel},#{discount},#{finalPrice})
     </insert>
     
     <delete id="deleteOrderCheck">
@@ -91,9 +90,6 @@
             </if>
             <if test="finalPrice!=null">
                 finalPrice = #{finalPrice},
-            </if>
-            <if test="paymentMethod!=null">
-                paymentMethod = #{paymentMethod},
             </if>
         </trim>
         where

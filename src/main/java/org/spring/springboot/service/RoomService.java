@@ -20,7 +20,7 @@ public interface RoomService {
     /**
      * 查询房间号查找房间价格
      */
-    public Long findRoomPriceByRIN(Long rin);
+    public Double findRoomPriceByRIN(Long rin);
 
     /**
      * 根据房间类型号查询相关房间信息

@@ -11,22 +11,18 @@
         <result column="roomerID" property="roomerID"/>
         <result column="roomerPhone" property="roomerPhone"/>
         <result column="roomTypeTitle" property="roomTypeTitle"/>
-        <result column="roomPrice" property="roomPrice"/>
-        <result column="vipLevel" property="vipLevel"/>
-        <result column="discount" property="discount"/>
-        <result column="finalPrice" property="finalPrice"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         OBIN,BSIN,orderTime,checkInTime,checkOutTime,roomerName,roomerID,roomerPhone,
-        roomTypeTitle,roomPrice,vipLevel,discount,finalPrice
+        roomTypeTitle
     </sql>
 
     <insert id="addOrderBook" useGeneratedKeys="true" keyProperty="OBIN">
         insert into
         OrderBook(<include refid="Base_Column_List"/>)
         values(#{OBIN},#{BSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomerName},#{roomerID},
-        #{roomerPhone},#{roomTypeTitle},#{roomPrice},#{vipLevel},#{discount},#{finalPrice})
+        #{roomerPhone},#{roomTypeTitle})
     </insert>
 
     <delete id="deleteOrderBook">
@@ -46,6 +42,11 @@
         select
         *
         from OrderBook
+    </select>
+
+    <select id="findOrderBookByRoomTypeTitle" resultType="org.spring.springboot.domain.OrderBook">
+        select *
+        from OrderBook where roomTypeTitle = #{roomtypetitle}
     </select>
 
     <update id="modifyOrderBook">
@@ -78,18 +79,6 @@
             </if>
             <if test="roomTypeTitle!=null">
                 roomTypeTitle = #{roomTypeTitle},
-            </if>
-            <if test="roomPrice!=null">
-                roomPrice = #{roomPrice},
-            </if>
-            <if test="vipLevel!=null">
-                vipLevel = #{vipLevel},
-            </if>
-            <if test="discount!=null">
-                discount = #{discount},
-            </if>
-            <if test="finalPrice!=null">
-                finalPrice = #{finalPrice},
             </if>
         </trim>
         where

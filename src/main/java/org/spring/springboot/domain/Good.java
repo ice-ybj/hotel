@@ -3,7 +3,7 @@ package org.spring.springboot.domain;
 public class Good {
     private Long GIN;
     private Long inventory;
-    private Long price;
+    private Double price;
     private String title;
 
     public Long getGIN() {
@@ -22,19 +22,19 @@ public class Good {
         this.inventory = inventory;
     }
 
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
-    }
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

@@ -3,6 +3,7 @@
 <mapper namespace="org.spring.springboot.dao.OrderCheckDao">
     <resultMap id="BaseResultMap" type="org.spring.springboot.domain.OrderCheck">
         <result column="OCIN" property="OCIN"/>
+        <result column="OBIN" property="OBIN"/>
         <result column="CSIN" property="CSIN" />
         <result column="orderTime" property="orderTime"/>
         <result column="checkInTime" property="checkInTime"/>
@@ -18,7 +19,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        OCIN,CSIN,orderTime,checkInTime,checkOutTime,roomTypeTitle,
+        OCIN,OBIN,CSIN,orderTime,checkInTime,checkOutTime,roomTypeTitle,
         roomPlate,roomPrice,VIP,vipLevel,discount,finalPrice,paymentMethod
     </sql>
 
@@ -54,6 +55,9 @@
         <trim prefix="set" suffixOverrides=",">
             <if test="OCIN!=null">
                 OCIN = #{OCIN},
+            </if>
+            <if test="OBIN!=null">
+                OBIN = #{OBIN},
             </if>
             <if test="CSIN!=null">
                 CSIN = #{CSIN},

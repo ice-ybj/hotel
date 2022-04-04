@@ -29,7 +29,7 @@ public class RoomServiceimpl implements RoomService {
 
 
     @Override
-    public Long findRoomPriceByRIN(Long rin) {
+    public Double findRoomPriceByRIN(Long rin) {
         RoomType room = roomDao.findRoomPriceByRIN(rin);
         return room.getPrice();
     }

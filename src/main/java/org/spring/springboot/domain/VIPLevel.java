@@ -2,8 +2,8 @@ package org.spring.springboot.domain;
 
 public class VIPLevel {
     private Long LV;
-    private Long discount;
-    private Long limitPoints;
+    private Double discount;
+    private Double limitPoints;
     private String title;
 
     public Long getLV() {
@@ -14,21 +14,6 @@ public class VIPLevel {
         this.LV = LV;
     }
 
-    public Long getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Long discount) {
-        this.discount = discount;
-    }
-
-    public Long getLimitPoints() {
-        return limitPoints;
-    }
-
-    public void setLimitPoints(Long limitPoints) {
-        this.limitPoints = limitPoints;
-    }
 
     public String getTitle() {
         return title;
@@ -36,5 +21,21 @@ public class VIPLevel {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    public Double getLimitPoints() {
+        return limitPoints;
+    }
+
+    public void setLimitPoints(Double limitPoints) {
+        this.limitPoints = limitPoints;
     }
 }

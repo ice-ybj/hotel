@@ -34,10 +34,16 @@
             <if test="inventory!=null">
                 inventory = #{inventory},
             </if>
+        </trim>
             where
             GIN = #{GIN}
-        </trim>
     </update>
+
+    <delete id="deleteGood">
+        delete
+        from Good
+        where GIN = #{gin}
+    </delete>
 
     <select id="findAllGood" resultType="org.spring.springboot.domain.Good">
         select *

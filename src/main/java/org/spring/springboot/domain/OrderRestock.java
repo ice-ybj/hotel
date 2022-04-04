@@ -5,10 +5,10 @@ import java.util.Date;
 public class OrderRestock {
     private Long ORIN;
     private Long amount;
-    private Long goodPrice;
+    private Double goodPrice;
     private String goodTitle;
     private Date orderTime;
-    private Long totalPrice;
+    private Double totalPrice;
 
     public Long getORIN() {
         return ORIN;
@@ -24,14 +24,6 @@ public class OrderRestock {
 
     public void setAmount(Long amount) {
         this.amount = amount;
-    }
-
-    public Long getGoodPrice() {
-        return goodPrice;
-    }
-
-    public void setGoodPrice(Long goodPrice) {
-        this.goodPrice = goodPrice;
     }
 
     public String getGoodTitle() {
@@ -50,11 +42,19 @@ public class OrderRestock {
         this.orderTime = orderTime;
     }
 
-    public Long getTotalPrice() {
+    public Double getGoodPrice() {
+        return goodPrice;
+    }
+
+    public void setGoodPrice(Double goodPrice) {
+        this.goodPrice = goodPrice;
+    }
+
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

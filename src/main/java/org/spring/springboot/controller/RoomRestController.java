@@ -31,7 +31,7 @@ public class RoomRestController {
     public String addRoomType(@RequestBody RoomType roomType){return roomService.addRoomType(roomType);}
 
     @GetMapping("/api/room/{rin}")
-    public Long findRoomPriceByRIN(@PathVariable("rin") Long rin){
+    public Double findRoomPriceByRIN(@PathVariable("rin") Long rin){
         return roomService.findRoomPriceByRIN(rin);
     }
 
