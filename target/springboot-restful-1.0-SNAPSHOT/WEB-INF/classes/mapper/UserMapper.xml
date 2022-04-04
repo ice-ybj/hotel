@@ -15,7 +15,7 @@
         select * from Users
     </select>
 
-    <insert id="add" parameterType="User">
+    <insert id="add">
         insert into Users(account, password, identity) values(#{account}, #{password}, #{identity})
     </insert>
 

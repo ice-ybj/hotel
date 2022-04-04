@@ -3,6 +3,7 @@ package org.spring.springboot.dao;
 
 
 import org.spring.springboot.domain.Good;
+import org.spring.springboot.domain.OrderSales;
 
 import java.util.List;
 
@@ -31,4 +32,9 @@ public interface GoodDao {
      * 根据商品号查询商品信息
      */
     public Good findGoodByGIN(Long gin);
+
+    /**
+     * 展示销售单信息
+     */
+    public List<OrderSales> findAllOrderSales();
 }

@@ -2,6 +2,7 @@ package org.spring.springboot.service.impl;
 
 import org.spring.springboot.dao.GoodDao;
 import org.spring.springboot.domain.Good;
+import org.spring.springboot.domain.OrderSales;
 import org.spring.springboot.service.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,10 @@ public class GoodServiceimpl implements GoodService {
     @Override
     public Good findGoodByGIN(Long gin) {
         return goodDao.findGoodByGIN(gin);
+    }
+
+    @Override
+    public List<OrderSales> findAllOrderSales() {
+        return goodDao.findAllOrderSales();
     }
 }

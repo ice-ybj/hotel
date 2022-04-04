@@ -57,4 +57,9 @@
         where GIN = #{gin}
     </select>
 
+    <select id="findAllOrderSales" resultType="org.spring.springboot.domain.OrderSales">
+        select *
+        from OrderSales
+    </select>
+
 </mapper>

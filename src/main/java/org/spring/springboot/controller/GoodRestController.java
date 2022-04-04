@@ -1,6 +1,7 @@
 package org.spring.springboot.controller;
 
 import org.spring.springboot.domain.Good;
+import org.spring.springboot.domain.OrderSales;
 import org.spring.springboot.service.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,9 @@ public class GoodRestController {
 
     @GetMapping("/api/good/{gin}")
     public Good findGoodByGIN(@PathVariable("gin") Long gin){return goodService.findGoodByGIN(gin);}
+
+    @GetMapping("/api/good/sales")
+    public List<OrderSales> findAllOrderSales(){return goodService.findAllOrderSales();}
 
     @PostMapping("/api/good")
     public String addGood(@RequestBody Good good){return goodService.addGood(good);}

@@ -46,7 +46,7 @@
         where Room.RIN = #{rin}
     </select>
 
-    <insert id="addRoom" useGeneratedKeys="true" keyProperty="RIN">
+    <insert id="addRoom">
         insert into
         Room(<include refid="Base_Column_List"/>)
         values(#{RIN},#{TIN},#{RSIN})

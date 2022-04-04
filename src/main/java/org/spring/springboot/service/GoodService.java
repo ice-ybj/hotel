@@ -1,6 +1,7 @@
 package org.spring.springboot.service;
 
 import org.spring.springboot.domain.Good;
+import org.spring.springboot.domain.OrderSales;
 
 import java.util.List;
 
@@ -29,4 +30,9 @@ public interface GoodService {
      * 根据商品号查询商品信息
      */
     public Good findGoodByGIN(Long gin);
+
+    /**
+     * 展示销售单信息
+     */
+    public List<OrderSales> findAllOrderSales();
 }
