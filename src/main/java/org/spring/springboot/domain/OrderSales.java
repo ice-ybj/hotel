@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class OrderSales {
     private Long OSIN;
+    private String customerName;
+    private String customerPhone;
     private Long amount;
     private Double goodPrice;
     private String goodTitle;
@@ -57,5 +59,21 @@ public class OrderSales {
 
     public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 }
