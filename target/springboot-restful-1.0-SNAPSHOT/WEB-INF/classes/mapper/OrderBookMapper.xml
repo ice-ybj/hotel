@@ -72,7 +72,7 @@
                 roomerName = #{roomerName},
             </if>
             <if test="roomerID!=null">
-                roomID = #{roomerID},
+                roomerID = #{roomerID},
             </if>
             <if test="roomerPhone!=null">
                 roomerPhone = #{roomerPhone},

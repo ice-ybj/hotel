@@ -34,7 +34,7 @@
                 goodTitle = #{goodTitle},
             </if>
             <if test="goodPrice!=null">
-                goodPrice = #{goodPrice}
+                goodPrice = #{goodPrice},
             </if>
             <if test="amount!=null">
                 amount = #{amount},
