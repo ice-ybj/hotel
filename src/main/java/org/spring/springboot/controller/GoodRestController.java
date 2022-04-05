@@ -22,6 +22,9 @@ public class GoodRestController {
     @GetMapping("/api/good/sales")
     public List<OrderSales> findAllOrderSales(){return goodService.findAllOrderSales();}
 
+    @PostMapping("/api/good/sales")
+    public String addSales(@RequestBody OrderSales orderSales){return goodService.addSales(orderSales);}
+
     @PostMapping("/api/good")
     public String addGood(@RequestBody Good good){return goodService.addGood(good);}
 

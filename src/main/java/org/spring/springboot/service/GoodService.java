@@ -35,4 +35,9 @@ public interface GoodService {
      * 展示销售单信息
      */
     public List<OrderSales> findAllOrderSales();
+
+    /**
+     * 添加销售订单
+     */
+    public String addSales(OrderSales orderSales);
 }

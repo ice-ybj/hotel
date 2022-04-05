@@ -37,4 +37,9 @@ public interface GoodDao {
      * 展示销售单信息
      */
     public List<OrderSales> findAllOrderSales();
+
+    /**
+     * 添加销售订单
+     */
+    public Long addSales(OrderSales orderSales);
 }

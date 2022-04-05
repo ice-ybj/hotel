@@ -50,4 +50,11 @@ public class GoodServiceimpl implements GoodService {
     public List<OrderSales> findAllOrderSales() {
         return goodDao.findAllOrderSales();
     }
+
+    @Override
+    public String addSales(OrderSales orderSales) {
+        Long flag = goodDao.addSales(orderSales);
+        if(flag==1){return "添加成功！";}
+        return "add error!";
+    }
 }
