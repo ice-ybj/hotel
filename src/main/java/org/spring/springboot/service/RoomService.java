@@ -3,6 +3,7 @@ package org.spring.springboot.service;
 
 import org.spring.springboot.domain.Room;
 import org.spring.springboot.domain.RoomType;
+import org.spring.springboot.domain.RoomerRecord;
 
 import java.util.List;
 
@@ -18,14 +19,24 @@ public interface RoomService {
     public List<RoomType> findAllRoomType();
 
     /**
+     * 查询所有住客信息
+     */
+    public List<RoomerRecord> findAllRoomer();
+
+    /**
      * 查询房间号查找房间价格
      */
-    public Double findRoomPriceByRIN(Long rin);
+    public Double findPriceByRoomTypeTitle(String type);
 
     /**
      * 根据房间类型号查询相关房间信息
      */
     public List<Room> findRoomByTIN(Long tin);
+
+    /**
+     * 根据OCIN查询相关房客信息
+     */
+    public RoomerRecord findRoomerByOCIN(Long ocin);
 
     /**
      * 根据类型名查询相关房间可入住数目

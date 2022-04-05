@@ -2,6 +2,7 @@ package org.spring.springboot.controller;
 
 import org.spring.springboot.domain.Room;
 import org.spring.springboot.domain.RoomType;
+import org.spring.springboot.domain.RoomerRecord;
 import org.spring.springboot.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,9 +31,15 @@ public class RoomRestController {
     @PostMapping("/api/room/type")
     public String addRoomType(@RequestBody RoomType roomType){return roomService.addRoomType(roomType);}
 
-    @GetMapping("/api/room/{rin}")
-    public Double findRoomPriceByRIN(@PathVariable("rin") Long rin){
-        return roomService.findRoomPriceByRIN(rin);
+    @GetMapping("/api/roomer")
+    public List<RoomerRecord> findAllRoomer(){return roomService.findAllRoomer();}
+
+    @GetMapping("/api/roomer/{ocin}")
+    public RoomerRecord findRoomerByOCIN(@PathVariable("ocin") Long ocin){return roomService.findRoomerByOCIN(ocin);}
+
+    @GetMapping("/api/room/{type}")
+    public Double findPriceByRoomTypeTitle(@PathVariable("type") String type){
+        return roomService.findPriceByRoomTypeTitle(type);
     }
 
     @GetMapping("/api/room/find/{tin}")

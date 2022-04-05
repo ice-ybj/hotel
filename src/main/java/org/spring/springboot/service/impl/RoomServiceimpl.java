@@ -4,6 +4,7 @@ package org.spring.springboot.service.impl;
 import org.spring.springboot.dao.RoomDao;
 import org.spring.springboot.domain.Room;
 import org.spring.springboot.domain.RoomType;
+import org.spring.springboot.domain.RoomerRecord;
 import org.spring.springboot.domain.StatusRoom;
 import org.spring.springboot.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +28,26 @@ public class RoomServiceimpl implements RoomService {
         return roomDao.findAllRoomType();
     }
 
+    @Override
+    public List<RoomerRecord> findAllRoomer() {
+        return roomDao.findAllRoomer();
+    }
+
 
     @Override
-    public Double findRoomPriceByRIN(Long rin) {
-        RoomType room = roomDao.findRoomPriceByRIN(rin);
+    public Double findPriceByRoomTypeTitle(String type) {
+        RoomType room = roomDao.findPriceByRoomTypeTitle(type);
         return room.getPrice();
     }
 
    @Override
     public List<Room> findRoomByTIN(Long tin){
         return roomDao.findRoomByTIN(tin);
+    }
+
+    @Override
+    public RoomerRecord findRoomerByOCIN(Long ocin) {
+        return roomDao.findRoomerByOCIN(ocin);
     }
 
     @Override
