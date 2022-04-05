@@ -12,10 +12,21 @@
         GIN,title,price,inventory
     </sql>
 
+    <sql id="OrderSales_Column_List">
+        OSIN,customerName,customerPhone,amount,goodPrice,goodTitle,orderTime,totalPrice
+    </sql>
+
     <insert id="addGood">
         insert into
         Good(<include refid="Base_Column_List"/>)
         values(#{GIN},#{title},#{price},#{inventory})
+    </insert>
+
+    <insert id="addSales" useGeneratedKeys="true" keyProperty="OSIN">
+        insert into
+        OrderSales(<include refid="OrderSales_Column_List"/>)
+        values(#{OSIN},#{customerName},#{customerPhone},#{amount},#{goodPrice},
+        #{goodTitle},#{orderTime},#{totalPrice})
     </insert>
 
     <update id="modifyGood">
