@@ -24,6 +24,11 @@ public interface RoomDao {
     public List<RoomerRecord> findAllRoomer();
 
     /**
+     * 找出所有可用的房间
+     */
+    public List<Room> findRoomUnused();
+
+    /**
      * 根据房间号查询房间价格
      */
     public RoomType findPriceByRoomTypeTitle(String type);

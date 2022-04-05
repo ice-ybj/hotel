@@ -96,6 +96,13 @@
         where OCIN = #{ocin}
     </select>
 
+    <select id="findRoomUnused" resultType="org.spring.springboot.domain.Room">
+        select
+        Room.RIN,Room.TIN,RSIN
+        from Room left join RoomType on Room.TIN = RoomType.TIN
+        where RSIN = 0;
+    </select>
+
 
     <delete id="deleteRoom">
         delete

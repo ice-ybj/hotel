@@ -10,6 +10,7 @@ import org.spring.springboot.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,6 +32,24 @@ public class RoomServiceimpl implements RoomService {
     @Override
     public List<RoomerRecord> findAllRoomer() {
         return roomDao.findAllRoomer();
+    }
+
+
+
+    @Override
+    public List<Room>[] findRoomUnused() {
+        List<Room> rooms = roomDao.findRoomUnused();
+        List<RoomType> roomTypes = roomDao.findAllRoomType();
+        List<Room> lis[]= new ArrayList[roomTypes.size()+1];
+        for(int i=1;i<=roomTypes.size();i++){
+            lis[i] = new ArrayList<>();
+        }
+        for(Room r : rooms){
+            for(int i=1;i<=roomTypes.size();i++){
+                if(r.getTIN()==i){lis[i].add(r);}
+            }
+        }
+        return lis;
     }
 
 

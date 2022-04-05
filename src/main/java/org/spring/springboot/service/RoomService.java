@@ -24,6 +24,11 @@ public interface RoomService {
     public List<RoomerRecord> findAllRoomer();
 
     /**
+     * 找出所有可用的房间
+     */
+    public List<Room>[] findRoomUnused();
+
+    /**
      * 查询房间号查找房间价格
      */
     public Double findPriceByRoomTypeTitle(String type);

@@ -34,6 +34,9 @@ public class RoomRestController {
     @GetMapping("/api/roomer")
     public List<RoomerRecord> findAllRoomer(){return roomService.findAllRoomer();}
 
+    @GetMapping("/api/room/unused")
+    public List<Room>[] findRoomUnused(){return roomService.findRoomUnused();}
+
     @GetMapping("/api/roomer/{ocin}")
     public RoomerRecord findRoomerByOCIN(@PathVariable("ocin") Long ocin){return roomService.findRoomerByOCIN(ocin);}
 

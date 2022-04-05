@@ -25,6 +25,14 @@ public class OrderCheck {
         this.OCIN = OCIN;
     }
 
+    public Long getOBIN() {
+        return OBIN;
+    }
+
+    public void setOBIN(Long OBIN) {
+        this.OBIN = OBIN;
+    }
+
     public Long getCSIN() {
         return CSIN;
     }
@@ -73,6 +81,14 @@ public class OrderCheck {
         this.roomPlate = roomPlate;
     }
 
+    public Double getRoomPrice() {
+        return roomPrice;
+    }
+
+    public void setRoomPrice(Double roomPrice) {
+        this.roomPrice = roomPrice;
+    }
+
     public Long getVIP() {
         return VIP;
     }
@@ -89,21 +105,16 @@ public class OrderCheck {
         this.vipLevel = vipLevel;
     }
 
-
-    public Long getOBIN() {
-        return OBIN;
-    }
-
-    public void setOBIN(Long OBIN) {
-        this.OBIN = OBIN;
-    }
-
-    public void setRoomPrice(Double roomPrice) {
-        this.roomPrice = roomPrice;
+    public Double getDiscount() {
+        return discount;
     }
 
     public void setDiscount(Double discount) {
         this.discount = discount;
+    }
+
+    public Double getFinalPrice() {
+        return finalPrice;
     }
 
     public void setFinalPrice(Double finalPrice) {
