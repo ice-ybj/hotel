@@ -32,11 +32,11 @@
         from Room
     </select>
 
-    <select id="findRoomPriceByRIN" resultType="org.spring.springboot.domain.RoomType">
+    <select id="findPriceByRoomTypeTitle" resultType="org.spring.springboot.domain.RoomType">
         select
         Room.TIN,facility,price,title
         from Room left join RoomType on Room.TIN = RoomType.TIN
-        where RIN = #{rin}
+        where title = #{type}
     </select>
 
     <select id="findRoomType" resultMap="TypeResultMap">
@@ -81,6 +81,19 @@
 
     <select id="findamountByRoomTypeTitle" resultType="org.spring.springboot.domain.Room">
         select * from Room where TIN=(select TIN from RoomType where title = #{roomtypetitle}) and RSIN=0;
+    </select>
+
+    <select id="findAllRoomer" resultType="org.spring.springboot.domain.RoomerRecord">
+        select
+        *
+        from RoomerRecord
+    </select>
+
+    <select id="findRoomerByOCIN" resultType="org.spring.springboot.domain.RoomerRecord">
+        select
+        *
+        from RoomerRecord
+        where OCIN = #{ocin}
     </select>
 
 
