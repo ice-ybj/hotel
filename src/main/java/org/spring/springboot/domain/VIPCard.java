@@ -2,7 +2,7 @@ package org.spring.springboot.domain;
 
 public class VIPCard {
     private Long VIP;
-    private Long ID;
+    private String ID;
     private Long LV;
     private String name;
     private Double points;
@@ -13,14 +13,6 @@ public class VIPCard {
 
     public void setVIP(Long VIP) {
         this.VIP = VIP;
-    }
-
-    public Long getID() {
-        return ID;
-    }
-
-    public void setID(Long ID) {
-        this.ID = ID;
     }
 
     public Long getLV() {
@@ -45,5 +37,13 @@ public class VIPCard {
 
     public void setPoints(Double points) {
         this.points = points;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

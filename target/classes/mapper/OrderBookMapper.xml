@@ -46,7 +46,7 @@
 
     <select id="findOrderBookByRoomTypeTitle" resultType="org.spring.springboot.domain.OrderBook">
         select *
-        from OrderBook where roomTypeTitle = #{roomtypetitle}
+        from OrderBook where roomTypeTitle = #{roomtypetitle} and BSIN in (2,3)
     </select>
 
     <update id="modifyOrderBook">
