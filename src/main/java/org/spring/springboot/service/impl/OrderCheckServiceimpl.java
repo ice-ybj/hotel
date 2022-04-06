@@ -2,6 +2,7 @@ package org.spring.springboot.service.impl;
 
 import org.spring.springboot.dao.OrderCheckDao;
 import org.spring.springboot.domain.OrderCheck;
+import org.spring.springboot.domain.RoomerRecord;
 import org.spring.springboot.service.OrderCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,11 @@ public class OrderCheckServiceimpl implements OrderCheckService {
         Long flag = orderCheckDao.modifyOrderCheck(orderCheck);
         if(flag==1){return "修改成功！";}
         return "modify error!";
+    }
+
+    @Override
+    public String addRoomer(RoomerRecord roomerRecord) {
+        orderCheckDao.addRoomer(roomerRecord);
+        return "添加成功!";
     }
 }

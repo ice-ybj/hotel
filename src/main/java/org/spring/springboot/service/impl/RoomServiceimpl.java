@@ -65,7 +65,7 @@ public class RoomServiceimpl implements RoomService {
     }
 
     @Override
-    public RoomerRecord findRoomerByOCIN(Long ocin) {
+    public List<RoomerRecord> findRoomerByOCIN(Long ocin) {
         return roomDao.findRoomerByOCIN(ocin);
     }
 

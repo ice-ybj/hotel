@@ -22,13 +22,23 @@
         roomPlate,roomPrice,VIP,vipLevel,discount,finalPrice
     </sql>
 
+    <sql id="Roomer_Column_List">
+        OCIN,roomerName,roomerID
+    </sql>
+
     <insert id="addOrderCheck" useGeneratedKeys="true" keyProperty="OCIN">
         insert into
         OrderCheck(<include refid="Base_Column_List"/>)
         values(#{OCIN},#{OBIN},#{CSIN},#{orderTime},#{checkInTime},#{checkOutTime},#{roomTypeTitle},
         #{roomPlate},#{roomPrice},#{VIP},#{vipLevel},#{discount},#{finalPrice})
     </insert>
-    
+
+    <insert id="addRoomer">
+        insert into
+        RoomerRecord(<include refid="Roomer_Column_List"/>)
+        values(#{OCIN},#{roomerName},#{roomerID})
+    </insert>
+
     <delete id="deleteOrderCheck">
         delete from
         OrderCheck
@@ -47,7 +57,8 @@
         *
         from OrderCheck
     </select>
-    
+
+
     <update id="modifyOrderCheck">
         update
         OrderCheck

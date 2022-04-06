@@ -2,7 +2,7 @@ package org.spring.springboot.domain;
 
 public class RoomerRecord {
     private Long OCIN;
-    private Long roomerID;
+    private String roomerID;
     private String roomerName;
 
     public Long getOCIN() {
@@ -13,11 +13,11 @@ public class RoomerRecord {
         this.OCIN = OCIN;
     }
 
-    public Long getRoomerID() {
+    public String getRoomerID() {
         return roomerID;
     }
 
-    public void setRoomerID(Long roomerID) {
+    public void setRoomerID(String roomerID) {
         this.roomerID = roomerID;
     }
 

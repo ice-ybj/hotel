@@ -41,7 +41,7 @@ public interface RoomService {
     /**
      * 根据OCIN查询相关房客信息
      */
-    public RoomerRecord findRoomerByOCIN(Long ocin);
+    public List<RoomerRecord> findRoomerByOCIN(Long ocin);
 
     /**
      * 根据类型名查询相关房间可入住数目

@@ -47,32 +47,25 @@ public class UserServiceimpl implements UserService {
         return userDao.queryByName(username);
     }
 
-    /**
-     * 错误代码 90000
-     * @param user
-     * @return
-     */
+
     @Override
     public String check(User user) {
+        Long flag = new Long((long)0);
         List<User> userslist = userDao.queryAll();
+        User usercheck = userDao.queryByName(user.getAccount());
+        if(null == usercheck){return "账号错误，请重新输入！";}
         for(User x : userslist){
             if(user.getAccount().equals(x.getAccount())){
                 if(!user.getPassword().equals(x.getPassword())) {
-                    return "90000,密码错误,请重新输入！";
+                    return "密码错误,请重新输入！";
                 }else {
                     return "登陆成功！";
                 }
-            }else {
-                return "90000,账号错误，请重新输入！";
             }
         }
         return "0000";
     }
 
-
-    /**
-     * 成功代码00000
-     */
     public Long deleteuser(String username){
         return userDao.deleteuser(username);
     }

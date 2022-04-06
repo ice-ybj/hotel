@@ -1,6 +1,8 @@
 package org.spring.springboot.controller;
 
 import org.spring.springboot.domain.OrderCheck;
+import org.spring.springboot.domain.Room;
+import org.spring.springboot.domain.RoomerRecord;
 import org.spring.springboot.service.OrderCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,9 @@ public class OrderCheckRestController {
 
     @GetMapping("/api/ordercheck/{ocin}")
     public OrderCheck findOrderCheckByOCIN(@PathVariable("ocin") Long ocin){return orderCheckService.findOrderCheckByOCIN(ocin); }
+
+    @PostMapping("/api/ordercheck/roomer")
+    public String addRoomer(@RequestBody RoomerRecord roomerRecord){return orderCheckService.addRoomer(roomerRecord);}
 
     @PostMapping("/api/ordercheck")
     public String addOrderCheck(@RequestBody OrderCheck orderCheck){return orderCheckService.addOrderCheck(orderCheck);}

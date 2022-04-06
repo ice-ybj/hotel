@@ -38,14 +38,14 @@ public class RoomRestController {
     public List<Room>[] findRoomUnused(){return roomService.findRoomUnused();}
 
     @GetMapping("/api/roomer/{ocin}")
-    public RoomerRecord findRoomerByOCIN(@PathVariable("ocin") Long ocin){return roomService.findRoomerByOCIN(ocin);}
+    public List<RoomerRecord> findRoomerByOCIN(@PathVariable("ocin") Long ocin){return roomService.findRoomerByOCIN(ocin);}
 
     @GetMapping("/api/room/{type}")
     public Double findPriceByRoomTypeTitle(@PathVariable("type") String type){
         return roomService.findPriceByRoomTypeTitle(type);
     }
 
-    @GetMapping("/api/room/find/{tin}")
+    @GetMapping("/api/room/{tin}")
     public List<Room> findRoomByTIN(@PathVariable("tin") Long tin){
         return roomService.findRoomByTIN(tin);
     }
