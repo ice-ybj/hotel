@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.ViewDao">
+
+    <select id="findroomRevenueToday" resultType="java.lang.Double">
+        select sum(finalprice) as roomRevenueToday
+        from OrderCheck
+        where TO_DAYS(orderTime) = TO_DAYS(NOW())
+    </select>
+
+    <select id="findroomRevenueYesterday" resultType="java.lang.Double">
+        SELECT sum(finalprice) AS roomRevenueYesterday FROM OrderCheck
+        WHERE TO_DAYS(orderTime) = TO_DAYS(NOW()) - 1
+    </select>
+
+    <select id="findroomRevenue" resultType="java.lang.Double">
+        SELECT sum(finalprice) AS roomRevenue FROM OrderCheck
+    </select>
+
+    <select id="findroomRevenueMonth" resultType="java.lang.Double">
+        SELECT sum(finalprice) AS roomRevenueMonth FROM OrderCheck
+        WHERE DATE_FORMAT(orderTime,"%Y%m") = DATE_FORMAT(CURDATE(),"%Y%m")
+    </select>
+
+    <select id="findsaleRevenueToday" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleRevenueToday FROM OrderSales
+        WHERE TO_DAYS(orderTime) = TO_DAYS(NOW())
+    </select>
+
+    <select id="findsaleRevenueYesterday" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleRevenueYesterday FROM OrderSales
+        WHERE TO_DAYS(orderTime) = TO_DAYS(NOW()) - 1
+    </select>
+
+    <select id="findsaleRevenueMonth" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleRevenueMonth FROM OrderSales
+        WHERE DATE_FORMAT(orderTime,"%Y%m") = DATE_FORMAT(CURDATE(),"%Y%m")
+    </select>
+
+    <select id="findsaleRevenue" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleRevenue FROM OrderSales
+    </select>
+
+    <select id="findsaleExpenseMonth" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleExpenseMonth FROM OrderRestock
+        WHERE DATE_FORMAT(orderTime,"%Y%m") = DATE_FORMAT(CURDATE(),"%Y%m")
+    </select>
+
+    <select id="findsaleExpense" resultType="java.lang.Double">
+        SELECT sum(totalPrice) AS saleExpense FROM OrderRestock
+    </select>
+</mapper>
